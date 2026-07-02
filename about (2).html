@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Griefy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0f0f0f;
+      --white: #fafaf8;
+      --gray: #888;
+      --light-gray: #e8e8e4;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--sans); font-weight: 300; line-height: 1.6; min-height: 100vh; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; z-index: 100; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--light-gray); }
+    .nav-wordmark { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; color: var(--black); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-link { font-size: 0.85rem; color: var(--gray); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-link:hover { color: var(--black); }
+    .nav-link.active { color: var(--black); }
+
+    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 40px; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+    .hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.03em; max-width: 760px; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+    .hero-title em { font-style: italic; color: var(--gray); }
+
+    .divider { width: 1px; height: 80px; background: var(--light-gray); margin: 0 auto; }
+
+    .story { max-width: 680px; margin: 0 auto; padding: 100px 24px; }
+    .story + .story { border-top: 1px solid var(--light-gray); }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 40px; }
+    .story-quote { font-family: var(--serif); font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; margin-bottom: 36px; }
+    .story-quote em { font-style: italic; color: var(--gray); }
+    .story-body { font-size: 1rem; color: var(--gray); line-height: 1.95; max-width: 540px; }
+    .story-body p + p { margin-top: 24px; }
+
+    .pull-quote { border-top: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray); padding: 80px 24px; text-align: center; }
+    .pull-quote-text { font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.3; letter-spacing: -0.02em; max-width: 680px; margin: 0 auto; }
+    .pull-quote-text em { font-style: italic; color: var(--gray); }
+
+    .cta { padding: 120px 24px; text-align: center; border-top: 1px solid var(--light-gray); }
+    .cta-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+    .cta-title em { font-style: italic; color: var(--gray); }
+    .cta-sub { font-size: 1rem; color: var(--gray); }
+
+    footer { border-top: 1px solid var(--light-gray); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-left { font-family: var(--serif); font-size: 1.1rem; color: var(--black); }
+    .footer-links { display: flex; gap: 32px; align-items: center; }
+    .footer-link { font-size: 0.8rem; color: var(--gray); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-link:hover { color: var(--black); }
+
+    .hero-logo { width: 64px; height: 64px; object-fit: contain; margin: 0 auto 32px; display: block; opacity: 0; animation: fadeUp 0.8s ease forwards 0.1s; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      .nav-links { gap: 20px; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-wordmark">Griefy</a>
+    <div class="nav-links">
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="index.html#partnership" class="nav-link">Partnership</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <img src="Griefynew.png" alt="Griefy" class="hero-logo" />
+    <p class="hero-eyebrow">Our story</p>
+    <h1 class="hero-title">Grief doesn't end.<br><em>Life just goes on around it.</em></h1>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="story">
+    <p class="section-label">Why Griefy was built</p>
+    <h2 class="story-quote">Nobody teaches you how to grieve. You're just expected to figure it out quietly, quickly, and alone.</h2>
+    <div class="story-body">
+      <p>Loss has a way of showing up in many forms. The death of someone you love. The end of something that mattered. A version of yourself you had to let go of. Grief is not one thing. It's everything that comes after.</p>
+      <p>Growing up, I watched people around me carry their grief in silence. Swallow it down. Get back to normal as fast as possible. Because that's what you do. That's what's expected. Grief makes people uncomfortable, so you learn to hide it.</p>
+    </div>
+  </section>
+
+  <div class="pull-quote">
+    <p class="pull-quote-text">"We live in a world where grief <em>doesn't fit.</em> People pull away. Life moves on. And you're left holding something nobody wants to talk about."</p>
+  </div>
+
+  <section class="story">
+    <p class="section-label">What I saw in others</p>
+    <h2 class="story-quote">Grief is one of the most universal things we go through. Yet somehow, <em>it remains one of the most unspoken.</em></h2>
+    <div class="story-body">
+      <p>I have watched it happen to people close to me. The way grief lands on someone and changes them. The way they try to keep going, keep showing up, while quietly carrying something heavy that nobody around them seems to want to acknowledge.</p>
+      <p>It struck me that something so deeply human, something every single one of us will face at some point in our lives, gets so little space. No real guidance. No tools built with genuine care. Just silence, and the expectation to move on.</p>
+      <p>That bothered me. It still does.</p>
+    </div>
+  </section>
+
+  <section class="story">
+    <p class="section-label">Why Griefy exists</p>
+    <h2 class="story-quote">I have been in very dark places. I know what it feels like to <em>lose yourself</em> in grief.</h2>
+    <div class="story-body">
+      <p>Grief is not just losing someone. It is the aftermath. The mornings after. The moments when it hits you out of nowhere. The way it quietly changes who you are.</p>
+      <p>I built Griefy because I needed something like it and it did not exist. Not a clinical tool. Not a checklist of stages. Just a quiet space, always there, no pressure, no judgment, where grief is allowed to just be.</p>
+      <p>Griefy is for anyone who has ever felt alone in theirs.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="cta-title">A quiet space,<br><em>whenever you need it.</em></h2>
+    <p class="cta-sub">Coming soon to App Store and Google Play.</p>
+  </section>
+
+  <div style="max-width: 680px; margin: 0 auto; padding: 0 24px 80px; border-top: none;">
+    <p style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 400; color: #888; font-style: italic;">Rowin, founder</p>
+  </div>
+
+  <footer>
+    <span class="footer-left">Griefy</span>
+    <div class="footer-links">
+      <a href="https://held-lettuce-e37.notion.site/Privacy-Policy-Griefy-App-3559e3f16ae480529d06cc0ab72a0c7d" class="footer-link" target="_blank">Privacy Policy</a>
+      <a href="index.html#partnership" class="footer-link">Partnership</a>
+      <a href="index.html#contact" class="footer-link">Contact</a>
+      <span class="footer-link" style="cursor:default">© 2026 Griefy</span>
+    </div>
+  </footer>
+
+</body>
+</html>
